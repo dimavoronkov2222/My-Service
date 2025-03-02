@@ -3,6 +3,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity {
@@ -13,14 +14,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Button startServiceButton = findViewById(R.id.startServiceButton);
         Button stopServiceButton = findViewById(R.id.stopServiceButton);
-        startServiceButton.setOnClickListener(new View.OnClickListener() {
+        startServiceButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.d(TAG, "Запуск сервиса");
                 startService(new Intent(MainActivity.this, MyService.class));
             }
         });
-        stopServiceButton.setOnClickListener(new View.OnClickListener() {
+        stopServiceButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.d(TAG, "Остановка сервиса");
